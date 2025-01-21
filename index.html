@@ -1,0 +1,358 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Makeup Haven</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <style>
+        @font-face {
+            font-family: "Elegant Handwriting";
+            src: url("assets/fonts/elegant-handwriting.ttf");
+        }
+
+        body {
+            font-family: 'Elegant Handwriting', cursive;
+            background-color: #ffffff; /* Default white background */
+            color: #000000; /* Default black text */
+            text-shadow: none;
+        }
+
+        #wrapper {
+            background-color: #ffdddd;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h1, h2 {
+            color: #333333;
+            border-bottom: 2px solid #cccccc;
+            padding-bottom: 5px;
+        }
+
+        a {
+            color: #000000;
+        }
+        a:hover {
+            color: #ffffff;
+        }
+
+        .menu-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background-color: #febcd4;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .menu {
+            display: none;
+            position: fixed;
+            top: 60px;
+            left: 20px;
+            background-color: #ffffff;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #cccccc;
+            z-index: 1000;
+        }
+
+        .menu ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .menu ul li {
+            margin-bottom: 10px;
+        }
+
+        .faq-item button {
+            background-color: #ffc2ea;
+            color: #333333;
+            font-weight: bold;
+            padding: 10px;
+            width: 100%;
+            text-align: left;
+            border: 1px solid #dddddd;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        .faq-item button:hover {
+            background-color: #e9ecef;
+        }
+        .faq-content {
+            padding: 10px;
+            background: #ffffff;
+            color: #333333;
+            border-radius: 5px;
+            border: 1px solid #dddddd;
+            display: none;
+        }
+
+        .actions .button.big {
+            background-color: #ffc3e5;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            padding: 15px 30px;
+            font-size: 18px;
+            text-transform: uppercase;
+            font-weight: bold;
+            text-shadow: none;
+        }
+        .actions .button.big:hover {
+            background-color: #fcc0e9;
+        }
+
+        .circular-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #ccc;
+        }
+
+        .circular-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .ad-preview img {
+            max-width: 200px;
+            height: auto;
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuButton = document.createElement('button');
+            menuButton.classList.add('menu-button');
+            menuButton.innerText = 'Menu';
+            document.body.appendChild(menuButton);
+
+            const menu = document.createElement('div');
+            menu.classList.add('menu');
+            menu.innerHTML = `<ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#ppc">PPC Campaign</a></li>
+                <li><a href="#help">Help</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>`;
+            document.body.appendChild(menu);
+
+            menuButton.addEventListener('click', () => {
+                menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+            });
+
+            // FAQ toggle functionality
+            document.querySelectorAll('.faq-item button').forEach(button => {
+                button.addEventListener('click', () => {
+                    const content = button.nextElementSibling;
+                    if (content.style.display === 'block') {
+                        content.style.display = 'none';
+                    } else {
+                        content.style.display = 'block';
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+
+                <!-- Header -->
+                <header id="header">
+                    <a href="index.html" class="logo"><strong>Makeup Haven</strong></a>
+                    <ul class="icons">
+                        <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                        <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+                        <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                    </ul>
+                </header>
+
+                <!-- Banner -->
+                <section id="banner">
+                    <div class="content">
+                        <header>
+                            <h1>Welcome to Makeup Haven</h1>
+                            <p>Where beauty becomes your daily accessory.</p>
+                        </header>
+                        <p>We believe makeup is more than just colors; it’s a way to enhance your natural beauty, boost your confidence, and celebrate who you are.</p>
+                        <ul class="actions">
+                            <li><a href="#products" class="button big">Explore Products</a></li>
+                        </ul>
+                    </div>
+                    <span class="image object">
+                        <img src="images/makeup.jpg" alt="" />
+                    </span>
+                </section>
+
+                <!-- About Us Section -->
+                <section id="about">
+                    <header class="major">
+                        <h2>About Us</h2>
+                    </header>
+                    <p>At Makeup Haven, our mission is to empower women to embrace their unique beauty and express themselves through the art of makeup. We understand that makeup is not just a tool but a form of self-expression and confidence. Our products are carefully curated with quality, inclusivity, and innovation in mind. From everyday essentials to bold statement pieces, our collections are designed to cater to all personalities and preferences.</p>
+                    <p>Founded by a passionate team of beauty enthusiasts, we’ve made it our goal to bridge the gap between luxury and affordability. Our formulas are crafted to meet the needs of modern women—long-lasting, highly pigmented, and gentle on the skin. At Makeup Haven, we don’t just sell products; we offer a lifestyle, a celebration of individuality, and a community that values self-love and creativity.</p>
+                </section>
+
+                <!-- Products Section -->
+                <section id="products">
+                    <header class="major">
+                        <h2>Our Products</h2>
+                    </header>
+                    <div class="features">
+                        <article>
+                            <div class="circular-image"><img src="images/red.jpg" alt="Red Velvet Lipstick" /></div>
+                            <div class="content">
+                                <h3>Red Velvet Lipstick</h3>
+                                <p>Rich and creamy, this lipstick glides on smoothly, delivering vibrant color that lasts all day. Price: $15</p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="circular-image"><img src="images/peach.jpg" alt="Peach Glow Lipstick" /></div>
+                            <div class="content">
+                                <h3>Peach Glow Lipstick</h3>
+                                <p>Perfect for a natural look, this peach shade complements all skin tones. Price: $14</p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="circular-image"><img src="images/sunrise.jpg" alt="Sunrise Palette" /></div>
+                            <div class="content">
+                                <h3>Sunrise Palette</h3>
+                                <p>Warm tones to create the perfect day-to-night look. Price: $25</p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="circular-image"><img src="images/galaxy.jpg" alt="Galaxy Palette" /></div>
+                            <div class="content">
+                                <h3>Galaxy Palette</h3>
+                                <p>A collection of cosmic-inspired hues for bold and dramatic looks. Price: $30</p>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- Services Section -->
+                <section id="services">
+                    <header class="major">
+                        <h2>Services</h2>
+                    </header>
+                    <p>We aim to make your shopping experience seamless and enjoyable. Here are some of the services we offer:</p>
+                    <ul>
+                        <li><strong>Shipping:</strong> Enjoy free shipping on all orders over $50. For orders below this amount, a flat rate of $5 applies. Expedited shipping options are also available at an additional cost.</li>
+                        <li><strong>Easy Returns:</strong> If you’re not completely satisfied with your purchase, we offer hassle-free returns within 30 days of receipt.</li>
+                        <li><strong>Gift Wrapping:</strong> Make your gift extra special with our premium gift-wrapping service for an additional $3 per item.</li>
+                    </ul>
+                </section>
+
+                <!-- PPC Campaign Section -->
+                <section id="ppc">
+                    <header class="major">
+                        <h2>PPC Campaign</h2>
+                    </header>
+                    <p><strong>Campaign Details:</strong></p>
+                    <ul>
+                        <li><strong>Goal:</strong> Increase brand awareness and drive traffic to the website.</li>
+                        <li><strong>Target Audience:</strong> Women aged 18-45, interested in beauty and makeup products.</li>
+                        <li><strong>Keywords:</strong> makeup, lipstick, eyeshadow palette, beauty products.</li>
+                        <li><strong>Budget:</strong> $500/month.</li>
+                    </ul>
+                    <div class="ad-preview">
+                        <img src="images/shades copy.jpg" alt="Lipstick Ad">
+                        <div class="content">
+                            <h3>Discover the Perfect Shade</h3>
+                            <p>Shop our luxurious lipstick collection. <a href="https://blpbeauty.com/blogs/story/how-to-find-your-perfect-lip-cotton-shade">Explore Now</a></p>
+                        </div>
+                    </div>
+                    <div class="ad-preview">
+                        <img src="images/eyeshadow.jpg" alt="Eyeshadow Ad">
+                        <div class="content">
+                            <h3>Unleash Your Creativity</h3>
+                            <p>Bold and vibrant eyeshadows for any occasion. <a href="https://www.douglas.ro/p/morphe-nude-ambition-artistry-palette-1184986?trac=DO_RO.01.01_Shopping.P_Shopping.Google.15415222723.131771732153.1184986.online.PM&gad_source=1&gclid=Cj0KCQiAqL28BhCrARIsACYJvkcPyCdfa5HlBlDUkb3bAzByA4asQ21qtzAyEWvsUJP73QKGQhbHH6oaAnXTEALw_wcB">Shop Now</a></p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Help Section -->
+                <section id="help">
+                    <header class="major">
+                        <h2>Help Center</h2>
+                    </header>
+                    <p>Need assistance? Browse our frequently asked questions or contact us directly for support:</p>
+                    <div class="faq">
+                        <div class="faq-item">
+                            <button>Return Policy: How do I return an item?</button>
+                            <div class="faq-content">
+                                <p>To return an item, please contact our customer service within 30 days of receipt. Ensure the product is unused and in its original packaging.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button>Online Orders: How do I place an order?</button>
+                            <div class="faq-content">
+                                <p>To place an order, browse our products, add your desired items to the cart, and proceed to checkout where you can provide your payment details.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button>Broken Products: What should I do if my product arrives damaged?</button>
+                            <div class="faq-content">
+                                <p>If your product arrives damaged, please take a photo and contact customer support immediately for a replacement or refund.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button>Shipping Details: How long does delivery take?</button>
+                            <div class="faq-content">
+                                <p>Delivery times vary based on location but typically range from 3-7 business days for standard shipping.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button>Payment Methods: What payment options are available?</button>
+                            <div class="faq-content">
+                                <p>We accept major credit cards, PayPal, and Apple Pay for your convenience.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Contact Section -->
+                <section id="contact">
+                    <header class="major">
+                        <h2>Contact Us</h2>
+                    </header>
+                    <p>If you have any questions or need assistance, feel free to reach out to us:</p>
+                    <ul class="contact">
+                        <li class="icon solid fa-envelope"><a href="mailto:info@makeuphaven.com">info@makeuphaven.com</a></li>
+                        <li class="icon solid fa-phone">(123) 456-7890</li>
+                        <li class="icon solid fa-home">123 Beauty Avenue, Glamour City</li>
+                    </ul>
+                </section>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
